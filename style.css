@@ -66,3 +66,15 @@ button:disabled
 background-color: #bdc3c7;
 cursor: not-allowed;
 }
+#new 
+{
+margin-left: auto; 
+margin-right: auto;
+margin-top: 10px;
+justify-content: center;
+border: 1px solid #ddd;
+border-radius: 8px;
+padding: 15px;
+width: 200px;
+background-color: #f9f9f9;
+}
