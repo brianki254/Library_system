@@ -34,7 +34,7 @@ function borrowBook(bookId)
   if (book && book. isAvailable) 
   {
     book.isAvailable = false;
-    alert (`You have borrowed "$(book. title)".`);
+    alert (`You have borrowed ${book. title}.`);
     displayBooks ();
   }
 }
@@ -45,9 +45,31 @@ let book = books.find(b => b.id === bookId) ;
   if (book && !book.isAvailable) 
   {
   book.isAvailable = true;
-  alert (`You have returned "$(book. title) ".`);
+  alert (`You have returned ${book. title} .`);
   displayBooks ();
   }
 }
+function newbook() 
+{
+  // Get input values
+  const title = document.getElementById("title").value.trim();
+  const author = document.getElementById("author").value.trim();
+  const year = parseInt(document.getElementById("year").value);
+  const newId = books.length + 1;
+  //validate
+  if (!title || !author || isNaN(year)) {return;}
+  //add new object 
+  const newBook = { id: newId,title: title,author: author,year: year,isAvailable: true };
+  // Add to library
+  books.push(newBook);
+  // remove input
+  document.getElementById("title").value = "";
+  document.getElementById("author").value = "";
+  document.getElementById("year").value = "";
+  // Display success message
+  alert(`${title} by ${author} has been added.`);
+  // Refresh book display
+  displayBooks();
+}  
 // Initial display of books
 displayBooks ();
